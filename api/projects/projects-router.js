@@ -8,7 +8,7 @@ const { validateProjectId, validateProject, validateProjectUpdate } = require('.
 const router = express.Router()
 
 // [GET] /api/projects
-router.get('/', (req, res, next) => {
+router.get('/', ( req, res, next ) => {
     Projects.get()
         .then(projects => {
             res.status(200).json(projects)
@@ -17,12 +17,12 @@ router.get('/', (req, res, next) => {
 })
 
 // [GET] /api/projects/:id
-router.get('/:id', validateProjectId, (req, res) => {
+router.get('/:id', validateProjectId, ( req, res ) => {
     res.status(200).json(req.project)
 })
 
 // [POST] /api/projects
-router.post('/', validateProject, (req, res, next) => {
+router.post('/', validateProject, ( req, res, next ) => {
     Projects.insert(req.body)
         .then(newProject => {
             res.status(200).json(newProject)
