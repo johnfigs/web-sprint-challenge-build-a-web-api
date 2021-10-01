@@ -18,9 +18,9 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 
 ### Task 1: Project Set Up
 
-- [ ] Run `npm install` to install your dependencies.
-- [ ] Run tests locally executing `npm test`.
-- [ ] Reset the database to its original state executing `npm run resetdb`.
+- [x] Run `npm install` to install your dependencies.
+- [x] Run tests locally executing `npm test`.
+- [x] Reset the database to its original state executing `npm run resetdb`.
 
 ### Task 2: Project Requirements (MVP)
 
@@ -31,60 +31,60 @@ Your finished project must include all of the following requirements:
 A _"test"_ script already exists you can use to run tests against your code.
 A _"resetdb"_ script exists that allows you to reset the database to its original state.
 
-- [ ] Write an _npm script_ named _"start"_ that uses `node` to run the API server.
-- [ ] Write an _npm script_ named _"server"_ that uses `nodemon` to run the API server.
-- [ ] Install _nodemon_ as a development dependency that would not be used in production.
+- [x] Write an _npm script_ named _"start"_ that uses `node` to run the API server.
+- [x] Write an _npm script_ named _"server"_ that uses `nodemon` to run the API server.
+- [x] Install _nodemon_ as a development dependency that would not be used in production.
 
 #### Environment Variables
 
-- [ ] Bring the port number from the `process.env` variable, falling back to `5000` if `process.env.PORT` is undefined **!!!**
+- [x] Bring the port number from the `process.env` variable, falling back to `5000` if `process.env.PORT` is undefined **!!!**
 
 #### Endpoints
 
 Inside `api/projects/projects-router.js` build the following endpoints:
 
-- [ ] `[GET] /api/projects`
+- [x] `[GET] /api/projects`
   - Returns an array of projects as the body of the response.
   - If there are no projects it responds with an empty array.
-- [ ] `[GET] /api/projects/:id`
+- [x] `[GET] /api/projects/:id`
   - Returns a project with the given `id` as the body of the response.
   - If there is no project with the given `id` it responds with a status code 404.
-- [ ] `[POST] /api/projects`
+- [x] `[POST] /api/projects`
   - Returns the newly created project as the body of the response.
   - If the request body is missing any of the required fields it responds with a status code 400.
-- [ ] `[PUT] /api/projects/:id`
+- [x] `[PUT] /api/projects/:id`
   - Returns the updated project as the body of the response.
   - If there is no project with the given `id` it responds with a status code 404.
   - If the request body is missing any of the required fields it responds with a status code 400.
-- [ ] `[DELETE] /api/projects/:id`
+- [x] `[DELETE] /api/projects/:id`
   - Returns no response body.
   - If there is no project with the given `id` it responds with a status code 404.
-- [ ] `[GET] /api/projects/:id/actions`
+- [x] `[GET] /api/projects/:id/actions`
   - Returns an array of actions (could be empty) belonging to a project with the given `id`.
   - If there is no project with the given `id` it responds with a status code 404.
 
 Inside `api/actions/actions-router.js` build endpoints for performing CRUD operations on _actions_:
 
-- [ ] `[GET] /api/actions`
+- [x] `[GET] /api/actions`
   - Returns an array of actions (or an empty array) as the body of the response.
-- [ ] `[GET] /api/actions/:id`
+- [x] `[GET] /api/actions/:id`
   - Returns an action with the given `id` as the body of the response.
   - If there is no action with the given `id` it responds with a status code 404.
-- [ ] `[POST] /api/actions`
+- [x] `[POST] /api/actions`
   - Returns the newly created action as the body of the response.
   - If the request body is missing any of the required fields it responds with a status code 400.
   - When adding an action make sure the `project_id` provided belongs to an existing `project`.
-- [ ] `[PUT] /api/actions/:id`
+- [x] `[PUT] /api/actions/:id`
   - Returns the updated action as the body of the response.
   - If there is no action with the given `id` it responds with a status code 404.
   - If the request body is missing any of the required fields it responds with a status code 400.
-- [ ] `[DELETE] /api/actions/:id`
+- [x] `[DELETE] /api/actions/:id`
   - Returns no response body.
   - If there is no action with the given `id` it responds with a status code 404.
 
 #### Middleware functions
 
-- [ ] Write at least two middleware functions for this API, and consume them in the proper places of your code.
+- [x] Write at least two middleware functions for this API, and consume them in the proper places of your code.
 
 ### Database Schemas
 
@@ -147,7 +147,21 @@ We have provided test data for all the resources.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
-1. Understand and explain the use of Middleware.
-1. The basic principles of the REST architectural style.
-1. Understand and explain the use of Express Routers.
-1. Describe tooling used to manually test the correctness of an API.
+
+- Core features of Node.js is that it allows us to use javascript in both the client and server which simplifies things, it also allows us to run functions async. Lastly, it grants us access to the NPM package universe. Core features of express are its simplicity, extensibility, and light footprint.
+
+2. Understand and explain the use of Middleware.
+
+- Middleware can best custom built, built-in, third-party. You enable middleware making a .use() call on our server and passing our middleware inside of it. Middleware extends the functionality of an express app such as logging or validation of requests.
+
+3. The basic principles of the REST architectural style.
+
+- The basic principles of the REST architectural style are everything in a resource, each resource is available via a unique URI, communication happens over a a stateless protocol (HTTP), and HTTP methods handle resource management.
+
+4. Understand and explain the use of Express Routers.
+
+- Express routers allow compartmentalization of methods functioning on different types of objects, for example, a router for project methods, and another router for actions. This allows for simplicity. 
+
+5. Describe tooling used to manually test the correctness of an API.
+
+- To manually test the correctness of an API, you need to use postman, HTTPie, or Insomnia, these tools allow you to manually hit the different methods (get, post, put, delete) of your API with request bodies that test different edge cases. 
