@@ -5,8 +5,6 @@ const Actions = require('./actions-model')
 
 const { validateActionId, validateAction, validateActionUpdate } = require('./actions-middlware')
 
-const { validateProjectId } = require('./../projects/projects-middleware')
-
 const router = express.Router()
 
 // [GET] /api/actions
